@@ -348,3 +348,18 @@ parameters:
   displayName: Skip TLS verification on webhooks
   description: Skip TLS verification on webhooks. Enable with caution!
   value: "false"
+  apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: gogs-data
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle
+  nfs:
+    server: 10.4.5.21
+    path: /exports/gogs-data
+
